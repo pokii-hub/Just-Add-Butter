@@ -1,0 +1,13 @@
+# Blender 4.0.2 MTL File: 'butter.blend'
+# www.blender.org
+
+newmtl Material.001
+Ns 471.095062
+Ka 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 2.000000
+d 1.000000
+illum 2
+map_Kd Textures/butterTex_m.png
+map_Ks Textures/butterTex_m_s.png
+map_Bump -bm 1.000000 Textures/butterTex_m_n.png

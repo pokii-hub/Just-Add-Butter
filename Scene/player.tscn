@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://xp6ludp4bdo0"]
+
+[ext_resource type="ArrayMesh" uid="uid://b1efykxmoune8" path="res://Assets/butter.obj" id="2_cgqfy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_14r80"]
+friction = 0.1
+absorbent = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ogj4t"]
+margin = 0.1
+size = Vector3(0.6, 0.2, 0.6)
+
+[node name="Player" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_14r80")
+gravity_scale = 2.0
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_ogj4t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = ExtResource("2_cgqfy")

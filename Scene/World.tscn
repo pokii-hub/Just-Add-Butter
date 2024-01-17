@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://2t5iprwm215a"]
+
+[ext_resource type="Script" path="res://Scripts/World.gd" id="1_cb65j"]
+[ext_resource type="PackedScene" uid="uid://xp6ludp4bdo0" path="res://Scene/player.tscn" id="3_efet4"]
+[ext_resource type="PackedScene" uid="uid://byhosfyhmhwd2" path="res://Scene/TestWorld.tscn" id="3_ibefb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6dm8p"]
+
+[sub_resource type="Sky" id="Sky_4gtcu"]
+sky_material = SubResource("ProceduralSkyMaterial_6dm8p")
+
+[sub_resource type="Environment" id="Environment_eitgv"]
+background_mode = 1
+background_color = Color(0.478431, 0.545098, 0.662745, 1)
+sky = SubResource("Sky_4gtcu")
+ambient_light_source = 2
+ambient_light_color = Color(0.701961, 0.729412, 0.831373, 1)
+
+[node name="TestWorld" type="Node3D"]
+script = ExtResource("1_cb65j")
+_rotation_amount = 0.15
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.756185, 0.654358, 0, -0.654358, 0.756185, 0, 3.93357, 3.61616)
+light_color = Color(1, 1, 0.847059, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eitgv")
+
+[node name="Player" parent="." instance=ExtResource("3_efet4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45265, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+spring_length = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="Player/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.00237)
+current = true
+fov = 90.0
+
+[node name="World" parent="." instance=ExtResource("3_ibefb")]
