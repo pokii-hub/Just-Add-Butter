@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://byhosfyhmhwd2"]
 
-[ext_resource type="PackedScene" uid="uid://cet5tb3yhhx0d" path="res://Assets/bread.glb" id="1_40adi"]
+[ext_resource type="ArrayMesh" uid="uid://b5577ulgfv8bq" path="res://Assets/bread.obj" id="1_ml7tn"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sa0iy"]
-size = Vector3(10, 1, 11)
+[sub_resource type="BoxShape3D" id="BoxShape3D_i0f3i"]
 
 [node name="World" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="Area3D" type="CharacterBody3D" parent="."]
-safe_margin = 0.1
+[node name="Area3D" type="Area3D" parent="."]
 
-[node name="CollisionShape" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.3)
-shape = SubResource("BoxShape3D_sa0iy")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = ExtResource("1_ml7tn")
+skeleton = NodePath("../..")
 
-[node name="bread" parent="Area3D" instance=ExtResource("1_40adi")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D/MeshInstance3D"]
+transform = Transform3D(20, 0, 0, 0, 2, 0, 0, 0, 22, 0, 0, -1)
+shape = SubResource("BoxShape3D_i0f3i")

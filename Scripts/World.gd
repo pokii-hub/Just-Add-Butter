@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var platform = $bread
+@onready var platform = $TestWorld
 @export var speed = 1.0
 @export var _rotation_amount = 0.35
 

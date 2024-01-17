@@ -16,7 +16,7 @@ sky = SubResource("Sky_4gtcu")
 ambient_light_source = 2
 ambient_light_color = Color(0.701961, 0.729412, 0.831373, 1)
 
-[node name="TestWorld" type="Node3D"]
+[node name="World" type="Node3D"]
 script = ExtResource("1_cb65j")
 _rotation_amount = 0.15
 
@@ -39,4 +39,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.00237)
 current = true
 fov = 90.0
 
-[node name="World" parent="." instance=ExtResource("3_ibefb")]
+[node name="TestWorld" parent="." instance=ExtResource("3_ibefb")]
